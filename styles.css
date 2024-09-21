@@ -1,0 +1,311 @@
+/* Variables CSS */
+:root {
+    --primary-color: #1e90ff;
+    --secondary-color: #ffffff;
+    --accent-color: #ff7f50;
+    --background-color: #f5f5f5;
+    --font-family: "Montserrat", sans-serif;
+  }
+  
+  /* Reseteo y estilos básicos */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    color: #333;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .form-container {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  form h1 {
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  input[type="time"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="date"]:focus,
+  input[type="time"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #1a78d6;
+  }
+  
+  /* Estilos para la selección de plataformas */
+  .platform-selection {
+    margin-bottom: 20px;
+  }
+  
+  .platform-selection h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 20px;
+  }
+  
+  .platform-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .platform-option span {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .platform-settings {
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider.round {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: 0.4s;
+  }
+  
+  .slider.round:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider.round {
+    background-color: var(--primary-color);
+  }
+  
+  input:checked + .slider.round:before {
+    transform: translateX(20px);
+  }
+  
+  /* Estilos para el botón de selección de archivos */
+  #select-files {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  #select-files i {
+    margin-right: 8px;
+  }
+  
+  #select-files:hover {
+    background-color: #ff6a33;
+  }
+  
+  #file-count {
+    margin-left: 10px;
+    font-weight: normal;
+    color: #555;
+  }
+  
+  #file-preview {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  .preview-file {
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .preview-file img,
+  .preview-file video {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .preview-file video {
+    background-color: #000;
+  }
+  
+  .delete-file {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    color: #ff0000;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 50%;
+  }
+  
+  .platform-settings label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .platform-settings select {
+    width: 100%;
+  }
+  
+  /* Pantalla de Carga */
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(245, 245, 245, 0.9);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #loading-screen p {
+    color: #333;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  
+  .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid var(--primary-color);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .platform-settings {
+      margin-left: 0;
+    }
+  
+    .platform-option {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .platform-option span {
+      margin-left: 0;
+      margin-top: 5px;
+    }
+  }  

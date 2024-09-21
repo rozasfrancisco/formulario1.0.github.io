@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Publicar Propiedad</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Fuente y librerías de iconos -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+  <!-- Iconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1YwT6Y4XUEZ2BM5urA5+gV4WZrXgPyDNYb6+YovC1O5V14+V4idKLPc2c4VbJfsD1QlNLw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <main>
+    <div class="container">
+      <!-- Formulario Principal -->
+      <div class="form-container">
+        <form id="property-form" enctype="multipart/form-data">
+          <h1>Publicar Propiedad</h1>
+
+          <!-- Campos de Propiedad con Etiquetas -->
+          <div class="form-group">
+            <label for="square_meters">Metros cuadrados</label>
+            <input type="number" id="square_meters" name="square_meters" required>
+          </div>
+          <div class="form-group">
+            <label for="rooms">Cantidad de habitaciones</label>
+            <input type="number" id="rooms" name="rooms" required>
+          </div>
+          <div class="form-group">
+            <label for="bathrooms">Cantidad de baños</label>
+            <input type="number" id="bathrooms" name="bathrooms" required>
+          </div>
+          <div class="form-group">
+            <label for="price">Precio</label>
+            <input type="number" id="price" name="price" required>
+          </div>
+          <div class="form-group">
+            <label for="location">Ubicación</label>
+            <input type="text" id="location" name="location" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Descripción de la propiedad</label>
+            <textarea id="description" name="description" required></textarea>
+          </div>
+
+          <!-- Selección de Tipo de Contenido -->
+          <div class="form-group">
+            <label for="content_type">¿Qué quieres subir?</label>
+            <select id="content_type" name="content_type" required>
+              <option value="" disabled selected>Elige una opción</option>
+              <option value="Imagen">Imagen</option>
+              <option value="Video">Video</option>
+            </select>
+          </div>
+
+          <!-- Selección de Plataforma con Switches -->
+          <div class="platform-selection">
+            <h3>Selecciona las plataformas:</h3>
+
+            <div class="platform-option">
+              <label class="switch">
+                <input type="checkbox" id="platform-instagram" name="platforms" value="Instagram">
+                <span class="slider round"></span>
+              </label>
+              <span>Instagram</span>
+              <div class="platform-settings" id="settings-instagram" style="display: none;">
+                <label for="post-type-instagram">Tipo de publicación:</label>
+                <select class="post-type-select" data-platform="Instagram" id="post-type-instagram">
+                  <!-- Opciones se llenarán dinámicamente -->
+                </select>
+              </div>
+            </div>
+
+            <div class="platform-option">
+              <label class="switch">
+                <input type="checkbox" id="platform-facebook" name="platforms" value="Facebook">
+                <span class="slider round"></span>
+              </label>
+              <span>Facebook</span>
+              <div class="platform-settings" id="settings-facebook" style="display: none;">
+                <label for="post-type-facebook">Tipo de publicación:</label>
+                <select class="post-type-select" data-platform="Facebook" id="post-type-facebook">
+                  <!-- Opciones se llenarán dinámicamente -->
+                </select>
+              </div>
+            </div>
+
+            <div class="platform-option">
+              <label class="switch">
+                <input type="checkbox" id="platform-twitter" name="platforms" value="Twitter">
+                <span class="slider round"></span>
+              </label>
+              <span>X (Twitter)</span>
+              <div class="platform-settings" id="settings-twitter" style="display: none;">
+                <label for="post-type-twitter">Tipo de publicación:</label>
+                <select class="post-type-select" data-platform="Twitter" id="post-type-twitter">
+                  <!-- Opciones se llenarán dinámicamente -->
+                </select>
+              </div>
+            </div>
+
+            <div class="platform-option">
+              <label class="switch">
+                <input type="checkbox" id="platform-linkedin" name="platforms" value="LinkedIn">
+                <span class="slider round"></span>
+              </label>
+              <span>LinkedIn</span>
+              <div class="platform-settings" id="settings-linkedin" style="display: none;">
+                <label for="post-type-linkedin">Tipo de publicación:</label>
+                <select class="post-type-select" data-platform="LinkedIn" id="post-type-linkedin">
+                  <!-- Opciones se llenarán dinámicamente -->
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Programar Publicación -->
+          <div class="form-group">
+            <label for="schedule">¿Quieres programar este contenido?</label>
+            <select id="schedule" name="schedule" required>
+              <option value="" disabled selected>Elige una opción</option>
+              <option value="no">No, quiero publicarlo ahora</option>
+              <option value="yes">Sí, quiero programarlo</option>
+            </select>
+          </div>
+
+          <!-- Campos de Fecha y Hora (Inicialmente Ocultos) -->
+          <div id="datetime-fields" style="display: none;">
+            <div class="form-group">
+              <label for="publish_date">Fecha de publicación:</label>
+              <input type="date" id="publish_date" name="publish_date">
+            </div>
+            <div class="form-group">
+              <label for="publish_time">Hora de publicación:</label>
+              <input type="time" id="publish_time" name="publish_time">
+            </div>
+          </div>
+
+          <!-- Botón para Seleccionar Archivos -->
+          <div class="form-group">
+            <label>Archivos:</label>
+            <button type="button" id="select-files"><i class="fas fa-upload"></i> Seleccionar Archivos</button>
+            <span id="file-count">0 archivo(s) seleccionado(s)</span>
+          </div>
+
+          <!-- Input de Archivos Oculto -->
+          <input type="file" id="media" name="media" accept="image/png, image/jpeg, video/mp4" multiple style="display: none;">
+
+          <!-- Contenedor para las Vistas Previas -->
+          <div id="file-preview"></div>
+
+          <button class="submit-btn" type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pantalla de Carga -->
+  <div id="loading-screen" style="display: none;">
+    <div class="spinner"></div>
+    <p>Enviando información, por favor espera...</p>
+  </div>
+
+  <!-- Script Principal -->
+  <script src="script.js"></script>
+</body>
+
+</html>
